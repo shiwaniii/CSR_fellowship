@@ -9,8 +9,24 @@ app.get("/",(req ,res)=>{
 
 });
 
+app.use("/all",require("./route"));
+
     
 app.listen(3000, () => {
     console.log("Express app is not running on port 3000");
 });
 
+
+// mysql connection //
+
+const mysql= require("mysql");
+const user = require("../day-2 express-app/user");
+
+const connection = mysql.createConnection({
+    host: "localhost",
+    user:"root",
+    password:"root@123!",
+    database:"training",
+    port:"3307",
+
+});
