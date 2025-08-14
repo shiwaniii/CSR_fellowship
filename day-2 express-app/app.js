@@ -15,4 +15,27 @@ app.use("/user", useRouter);
 app.listen(3000, () => {
     console.log("Express app is running on port 3000");
 });
+const mysql = require("mysql2");
+const connection = mysql.createConnection({
+    host: "localhost",
+    user:"root",
+    password:"root@123!",
+    database:"fellow",
+    port:3307,
+});
 
+connection.connect((err) => {
+    if(err) {
+        console.log("Error connecting to MySQL", err);
+    }else{
+        console.log("Connected to MySQL");
+    }
+});
+
+connection.query("SELECT * FROM colleges", (err, results) => {
+  if (err) {
+    console.log("error quering the colleges", err);
+  } else {
+    console.log("Colleges data", results);
+  }
+});
