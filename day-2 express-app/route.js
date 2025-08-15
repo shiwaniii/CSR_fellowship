@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/", (req,res) => {
    
 
-    res.send(`This is static route.`);
+    res.send(`This is dynamic route.`);
 });
 
 router.get("/:id", (req,res) => {
